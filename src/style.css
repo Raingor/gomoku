@@ -1,0 +1,51 @@
+@font-face{font-family:LocalRounded;src:local("HanziPen SC"),local("Kaiti SC");font-display:swap}
+:root{font-family:"PingFang SC","Noto Sans CJK SC","Microsoft YaHei",sans-serif;color:#203e34;background:#f7f3e9;font-synthesis:none;--paper:#f7f3e9;--ink:#203e34;--green:#174a3d;--orange:#cf4d2d;--line:#d7d9cb;--muted:#647166}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.12;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.86' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%237b6e48' opacity='.32' filter='url(%23n)' d='M0 0h180v180H0z'/%3E%3C/svg%3E")}
+button{font:inherit}button:focus-visible{outline:3px solid var(--orange);outline-offset:3px}
+.wrap{max-width:1100px;margin:0 auto;padding:26px 24px 42px;position:relative}
+.head{display:flex;justify-content:space-between;align-items:center;gap:18px;margin-bottom:26px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{width:46px;height:46px;border-radius:12px;background:var(--green);color:#fff4d8;display:grid;place-items:center;font-size:22px;padding-left:2px}
+.brand-mark svg{width:24px;height:24px}
+.brand h1{font-family:Georgia,"Songti SC",serif;font-size:32px;margin:0;letter-spacing:1px}
+.brand small{font-family:monospace;font-size:10px;letter-spacing:1.6px;color:var(--muted)}
+.score{display:flex;gap:10px;font-size:13px}
+.score span{background:#fffdf6;border:1px solid var(--line);border-radius:20px;padding:7px 13px;min-width:66px;text-align:center}
+.game{display:grid;grid-template-columns:auto minmax(250px,1fr);gap:28px;align-items:start}
+.board-wrap{background:#e8dcb7;border:1px solid #c8bfa0;border-radius:14px;padding:14px;box-shadow:0 4px 0 #c8bfa0;max-width:100%}
+.board{display:block;cursor:pointer;max-width:100%;height:auto}
+.board .board-bg{fill:#e6cf9b}
+.board .grid{stroke:#8a7c5c;stroke-width:1}
+.board .star{fill:#8a7c5c}
+.board .stone.s1{fill:#233129;stroke:#16201a;stroke-width:1}
+.board .stone.s2{fill:#f5efdc;stroke:#c4b795;stroke-width:1}
+.board .stone.last{stroke:var(--orange);stroke-width:2.5}
+.board .cursor{fill:none;stroke:var(--orange);stroke-width:2.5;stroke-dasharray:4 3;opacity:.85}
+.empty-hint{font:600 15px/1 "PingFang SC",sans-serif;fill:#8a7c5c;pointer-events:none}
+.empty-hint.small{font-size:11px;fill:#a29477}
+.side{display:flex;flex-direction:column;gap:16px}
+.bear-card{background:#fffdf6;border:1px solid var(--line);border-radius:14px;padding:18px 18px 14px;text-align:center;box-shadow:0 3px 0 #d8d4c2}
+.bear-card img{width:132px;height:132px;object-fit:contain;filter:drop-shadow(0 3px 0 #fff4e0)}
+.bear-card p{margin:10px 0 0;font-size:13px;color:var(--muted)}
+.panel{background:#fffdf6;border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:0 3px 0 #d8d4c2}
+.status{font-size:14px;margin:0 0 14px;line-height:1.7;min-height:24px}
+.difficulty{display:flex;gap:6px;margin-bottom:14px}
+.difficulty button{flex:1;border:1px solid #c7cdbd;background:transparent;border-radius:8px;padding:9px 4px;font-size:13px;color:var(--ink)}
+.difficulty button.on{background:var(--green);color:#fff6e0;border-color:var(--green)}
+.actions{display:flex;gap:8px;margin-bottom:12px}
+.btn{flex:1;border:1px solid #c7cdbd;background:#f3f0e2;border-radius:9px;padding:11px 8px;font-size:13px;font-weight:600;color:var(--ink)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.primary{background:var(--green);border-color:var(--green);color:#fff6e0}
+.hint{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+@media(max-width:820px){
+  .game{grid-template-columns:1fr}
+  .board-wrap{justify-self:center}
+}
+@media(max-width:560px){
+  .wrap{padding:18px 14px 32px}
+  .brand h1{font-size:25px}
+  .score span{font-size:12px;min-width:56px;padding:6px 10px}
+  .board-wrap{padding:8px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
